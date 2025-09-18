@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>秋招趋势榜单</title>
+  <link rel="stylesheet" href="weibo_hot_rankings.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>秋招趋势榜单</h1>
+      <button class="settings-btn" id="settings-btn">⚙️</button>
+    </div>
+    
+    <div class="controls">
+      <button class="refresh-btn" id="refresh-btn">刷新</button>
+    </div>
+    
+    <div id="status-message"></div>
+    
+    <div class="rankings-list" id="rankings-list">
+      <!-- 排行榜内容将通过JavaScript动态生成 -->
+    </div>
+  </div>
+  
+  <!-- 设置模态框 -->
+  <div class="modal" id="settings-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>关键词设置</h2>
+        <button class="close-btn" id="close-modal-btn">&times;</button>
+      </div>
+      <div class="form-group">
+        <label for="keywords-list">关键词列表:</label>
+        <div class="keywords-info">
+          <p>每行输入一个关键词，支持以下类型的关键词：</p>
+          <ul>
+            <li>职位类型：Java面试、前端面试、产品经理等</li>
+            <li>招聘类型：秋招、校招、实习转正等</li>
+            <li>公司名称：字节跳动、腾讯、阿里巴巴等</li>
+            <li>其他相关：简历、offer、面试经验等</li>
+          </ul>
+          <p>系统会定期根据这些关键词搜索B站相关视频，生成趋势榜单。</p>
+        </div>
+        <textarea id="keywords-list" placeholder="每行一个关键词&#10;例如：&#10;秋招&#10;Java面试&#10;腾讯&#10;简历"></textarea>
+        <div class="keywords-actions">
+          <button class="add-keyword-btn" id="add-default-keywords-btn">添加默认关键词</button>
+          <button class="clear-keywords-btn" id="clear-keywords-btn">清空</button>
+        </div>
+      </div>
+      <button class="save-btn" id="save-settings-btn">保存设置</button>
+    </div>
+  </div>
+  
+  <script src="weibo_hot_rankings.js"></script>
+</body>
+</html>

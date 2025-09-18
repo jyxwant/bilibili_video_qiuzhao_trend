@@ -1,0 +1,51 @@
+{
+  "name": "job-trend-tracker",
+  "version": "1.0.0",
+  "description": "秋招趋势榜单工具",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node src/test_bilibili_api.js",
+    "test-time": "node src/test_time_filter.js",
+    "build": "electron-builder",
+    "build:portable": "electron-builder --win portable"
+  },
+  "keywords": [
+    "job",
+    "trend",
+    "tracker",
+    "bilibili"
+  ],
+  "author": "Job Trend Tracker",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "electron": "^30.5.1",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.jobtrendtracker.app",
+    "productName": "秋招趋势榜单",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "${productName}-便携版.${ext}"
+    },
+    "extraFiles": [
+      {
+        "from": "node_modules/playwright-core/bin",
+        "to": "resources/app/node_modules/playwright-core/bin",
+        "filter": ["**/*"]
+      }
+    ]
+  }
+}
